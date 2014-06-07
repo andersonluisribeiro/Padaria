@@ -1,40 +1,26 @@
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class VendaTest {
 
+	private ItemDataBuilder itemBuilder;
+	
+	@Before
+	public void inicia(){
+		itemBuilder = new ItemDataBuilder();
+	}
+	
 	@Test
 	public void deveCalcularOValorTotalDaVenda() {
-		
-		Produto tomate = new Produto();
-		tomate.valorUnitario = 10f;
-		
-		Produto pinico = new Produto();
-		pinico.valorUnitario = 10f;
-		
-		Item vendaDoTomate = new Item();
-		vendaDoTomate.quantidade = 5f;
-		vendaDoTomate.produto = tomate;
-		
-		Item vendaDoPinico = new Item();
-		vendaDoPinico.quantidade = 7f;
-		vendaDoPinico.produto = pinico;
-		
-		List<Item> itens = new ArrayList<Item>();
-		itens.add(vendaDoPinico);
-		itens.add(vendaDoTomate);
-		
-		Venda venda = new Venda();
-		venda.itens = itens;
-		
-		Float resultado = venda.valorTotal();
-		Float resultadoEsperado = 120f;
-		assertEquals(resultadoEsperado, resultado);
+		Item vendaDoTomate = itemBuilder.criarItem("Tomate", 10f, 5f);
+		Item vendaDoPinico = itemBuilder.criarItem("Pinico", 10f, 7f);				
+		Venda venda = new Venda(Arrays.asList(vendaDoTomate, vendaDoPinico));
+		assertEquals(new Float(120), venda.valorTotal());
 	}
 
 }

@@ -5,7 +5,6 @@ public class Item {
 	public Produto produto;
 	
 	public Item(){
-		
 	}
 	
 	public Item(Float quantidade, Produto produto){
