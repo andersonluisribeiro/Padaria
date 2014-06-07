@@ -10,8 +10,8 @@
  
 ### Eclipse ###
 *.pydevproject
-.project
-.metadata
+#.project
+#.metadata
 bin/**
 tmp/**
 tmp/**/*
@@ -20,7 +20,7 @@ tmp/**/*
 *.swp
 *~.nib
 local.properties
-.classpath
-.settings/
+#.classpath
+#.settings/
 .loadpath
  
