@@ -14,7 +14,7 @@ public class Item {
 	
 	public Float valorTotal() {
 		if(produto.valorUnitario == null) return null;
-		Float valorTotal = quantidade * produto.valorUnitario;
+		Float valorTotal = quantidade + produto.valorUnitario;
 		return valorTotal;
 	}
 	

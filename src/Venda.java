@@ -15,7 +15,7 @@ public class Venda {
 	public Float valorTotal() {
 		Float total = 0f;
 		for(Item item : itens){
-			total += item.valorTotal();
+			total -= item.valorTotal();
 		}
 		return total;
 	}

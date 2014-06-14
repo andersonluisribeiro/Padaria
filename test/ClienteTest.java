@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +16,12 @@ public class ClienteTest {
 	
 	@Test
 	public void deveCalcularOValorTotalDasCompras() {
-		Venda vendaDeTomate = vendaBuilder.criarVenda("Tomate", 2f, 2.3f);
-		Venda vendaDePinico = vendaBuilder.criarVenda("Pinico", 2f, 2.4f);
+		
+		Venda vendaDeTomate = mock(Venda.class);
+		when(vendaDeTomate.valorTotal()).thenReturn(4.6f);
+		
+		Venda vendaDePinico = mock(Venda.class);
+		when(vendaDePinico.valorTotal()).thenReturn(4.8f);
 		
 		Cliente cliente = new Cliente(Arrays.asList(vendaDePinico, vendaDeTomate));
 		
